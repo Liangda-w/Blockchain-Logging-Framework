@@ -1,0 +1,17 @@
+SET BLOCKCHAIN "Hyperledger";
+
+SET OUTPUT FOLDER "./test_output";
+
+SET CONNECTION {
+   "hyperledger/connection-org1.yaml",
+   "hyperledger/server.key",
+   "hyperledger/server.crt",
+   "Org1MSP",
+   "mychannel"
+};
+
+BLOCKS (0) (1) {
+   LOG ENTRIES ("auction") (Auction(string item)) {
+      EMIT LOG LINE ("The item of the new Auction is: ", item, ".");
+   }
+}
